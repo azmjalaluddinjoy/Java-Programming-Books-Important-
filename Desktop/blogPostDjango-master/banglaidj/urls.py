@@ -18,7 +18,7 @@ from django.contrib import admin
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('blog/', include('blog_post.urls'), name= 'blog_home'),
+    path('home/', include('blog_post.urls'), name= 'blog_home'),
     #path('', include('users.urls)')),
  	# path('cost/', include('cost_management.urls'), name='cost'),
 ]

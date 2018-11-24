@@ -5,7 +5,9 @@ from django.contrib import admin
 # r ek e app er model import korte hole .models import class_name dilei chole
 from .models import Post
 from .models import Product
+from .models import Nuser
 
 # Register your models here.
 admin.site.register(Post)
 admin.site.register(Product)
+admin.site.register(Nuser)
