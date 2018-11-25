@@ -1,8 +1,60 @@
 {% extends 'base.html' %}
 {% block content %}
-      {% for post in post_list %}
-         <h3><a href="{% url 'single_post' post.pk %}">{{ post.title }}</a></h3>
-      {% endfor %}
+{#      {% for post in post_list %}#}
+{#         <h3><a href="{% url 'single_post' post.pk %}">{{ post.title }}</a></h3>#}
+{##}
+{#      {% endfor %}#}
+
+        <div class="container"  style="width: 650px;">
+
+    <div>
+        <div class="col-sm-4">
+            <p>Hello 01</p>
+            <img src="joy.jpg">
+
+        </div>
+
+        <div class="col-sm-4">
+            <p>Hello 02</p>
+        </div>
+
+        <div class="col-sm-4">
+            <p>Hello 03</p>
+        </div>
+    </div>
+
+    <div>
+        <div class="col-sm-3">
+            <p>Hello 04</p>
+        </div>
+
+        <div class="col-sm-3">
+            <p>Hello 05</p>
+        </div>
+
+        <div class="col-sm-3">
+            <p>Hello 06</p>
+        </div>
+    </div>
+
+    <div>
+        <div class="col-sm-3">
+            <p>Hello 07</p>
+        </div>
+
+        <div class="col-sm-3">
+            <p>Hello 08</p>
+        </div>
+
+        <div class="col-sm-3">
+            <p>Hello 09</p>
+        </div>
+
+    </div>
+
+
+    </div>
+
 {% endblock %}
 
 

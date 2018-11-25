@@ -1,9 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Post
+from .models import Post, EnewsPaper, Nuser
 from .forms import ProductForm
 from .forms import UserForm
-from .models import Nuser
 
 # Create your views here.
 def home(request):
@@ -29,12 +28,12 @@ def product_create_view(request):
 	if form.is_valid():
 		form.save()
 		form = ProductForm()
-		regiform = UserForm()
+		rform = UserForm()
 
 
 	context = {
 		'form':form,
-		'regiform': regiform
+		'regiform': rform
 	}
 	return render(request, 'product_create.html', context)
 
@@ -58,7 +57,28 @@ def userReg(request):
 		form = UserForm()
 
 		context = {
-			'form':form
-		}
-		return render(request, 'base.html', context)
+			'form':form,
 
+		}
+		return render(request, 'registration.html', context)
+
+def eNewsView(request):
+	allNewsInPage = EnewsPaper.objects.all()
+
+	for eNewsView in allNewsInPage:
+		print(eNewsView.date)
+		print(eNewsView.pageNumber)
+		print(eNewsView.position1)
+		print(eNewsView.position2)
+		print(eNewsView.position3)
+		print(eNewsView.position4)
+		print(eNewsView.position5)
+		print(eNewsView.position6)
+		print(eNewsView.position7)
+		print(eNewsView.position8)
+		print(eNewsView.position9)
+	return render(request, 'eachNewsDiffer.html', {'eachNews': allNewsInPage})
+
+def eachNews(request):
+	eachNews = EnewsPaper.objects.all()
+	return render(request, 'eNewsPaperHome.html', {'eachNews': eachNews})

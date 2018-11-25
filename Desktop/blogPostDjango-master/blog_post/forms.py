@@ -20,7 +20,8 @@ class UserForm(forms.ModelForm):
             'address',
             'occupation',
             'email',
-            'password'
+            'password',
+            'image'
         ]
 #
 # class customerFOrm(forms.ModelForm)
