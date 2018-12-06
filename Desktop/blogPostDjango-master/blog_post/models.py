@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 # Create your models here.
@@ -19,7 +20,6 @@ class Product(models.Model):
 
 	def __str__(self):
 		return self.title
-
 
 class Newusers(models.Model):
 	name = models.CharField(max_length=50)
@@ -44,9 +44,58 @@ class Nuser(models.Model):
 	def __str__(self):
 		return self.email
 
+class ENewsUpload(models.Model):
+	date = models.CharField(max_length=50)
+	pageChoice = (
+		('page1', 'Page1'),
+		('page2', 'Page2'),
+		('page3', 'Page3'),
+		('page4', 'Page4'),
+		('page5', 'Page5'),
+		('page6', 'Page6'),
+		('page7', 'Page7'),
+		('page8', 'Page8'),
+	)
+	pageNumber = models.CharField(max_length=100, choices=pageChoice)
+	positionChoice = (
+		('r0c0', 'Page Topper'),
+		('r1c1', 'Row 1 Column 1'),
+		('r1c2', 'Row 1 Column 2'),
+		('r1c3', 'Row 1 Column 3'),
+		('r2c1', 'Row 2 Column 1'),
+		('r2c2', 'Row 2 Column 2'),
+		('r2c3', 'Row 2 Column 3'),
+		('r3c1', 'Row 3 Column 1'),
+		('r3c2', 'Row 3 Column 2'),
+		('r3c3', 'Row 3 Column 3'),
+	)
+	position = models.CharField(max_length=100, choices=positionChoice)
+	categoryChoice = (
+		('topper', 'Topper Page'),
+		('education', 'Education'),
+		('business', 'Business'),
+		('sports', 'Sports'),
+		('entertainment', 'Entertainment'),
+		('science_technology', 'Science & Technology'),
+		('lifestyle', 'Lifestyle'),
+		('comics', 'Comics'),
+		('cartoons', 'Cartoons'),
+		('jobs', 'Jobs'),
+		('opinions', 'Opinions'),
+		('international', 'International'),
+		('circulations', 'Circulations'),
+		('advertisement', 'Advertisement'),
+	)
+	category = models.CharField(max_length=100, choices=categoryChoice)
+	news = models.ImageField(upload_to='news', blank=True)
+
+	def __str__(self):
+		return self.date
+
+
 class EnewsPaper(models.Model):
 	date = models.CharField(max_length=50)
-	pageNumber = models.IntegerField(max_length=16)
+	pageNumber = models.IntegerField(blank=True)
 	position1 = models.ImageField(upload_to='row1column1', blank=True)
 	position2 = models.ImageField(upload_to='row1column2', blank=True)
 	position3 = models.ImageField(upload_to='row1column3', blank=True)
@@ -59,3 +108,17 @@ class EnewsPaper(models.Model):
 
 	def __str__(self):
 		return self.date
+
+#new ajax code using
+class tinytest(models.Model):
+	name  = models.CharField(max_length=120)
+	email = models.CharField(max_length=120)
+
+	def __str__(self):
+		return self.name
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
+    photo = models.ImageField(upload_to="images")
+    attachment = models.FileField(upload_to="attachments")
+    phone = models.CharField(max_length=10)

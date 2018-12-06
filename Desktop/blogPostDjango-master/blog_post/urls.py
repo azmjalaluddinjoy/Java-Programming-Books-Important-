@@ -1,12 +1,32 @@
 from django.urls import path
 from . import views
- 
+
 urlpatterns = [
 	path('home/', views.home, name = 'blog_home'),
     path('post_list/', views.post_list, name ='post_list'),
     path('e_news/', views.eachNews, name='e_news'),
+    path('e_news_today/', views.eNews, name='eNewsToday'),
+    path('e_news_today/?date=30November18&p=page1/', views.eNews, name='querryENewsToday'),
     path ('create/', views.product_create_view, name='product_create_view'),
     path ('new_user/', views.userRegistration, name='userRegistration'),
     path ('reg/', views.userReg, name='userRegistration'),
     path('single_post/<post_id>/', views.single_post, name='single_post'),
+    path('register/', views.RegisterUserView, name='authenticRegister'),
+    path('registration/', views.Registration, name='Reg'),
+    path('login/', views.login_view, name='Login'),
+    path('save/', views.home, name='homesave'),
+    path('profile/', views.django_image_and_file_upload_ajax, name='profileImage'),
+    path('e_news_today/gg/', views.specific, name='specificNews'),
+    path('e_news_today/?cat=business/', views.specific, name='dfdf'),
+    path('e_news_today/?cat=sports/', views.specific, name='dfd'),
+    path('e_news_today/?cat=entertainment/', views.specific, name='dfd'),
+    path('e_news_today/?cat=science_technology/', views.specific),
+    path('e_news_today/?cat=lifestyle/', views.specific),
+    path('e_news_today/?cat=comics/', views.specific),
+    path('e_news_today/?cat=cartoons/', views.specific),
+    path('e_news_today/?cat=jobs/', views.specific),
+    path('e_news_today/?cat=opinions/', views.specific),
+    path('e_news_today/?cat=international/', views.specific),
+    path('e_news_today/?cat=circulations/', views.specific),
+    path('e_news_today/?cat=advertisement/', views.specific),
 ]
